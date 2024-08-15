@@ -3,8 +3,8 @@ import pino from 'pino-http';
 import cors from 'cors';
 import { env } from './utils/env.js';
 import { ENV_VARS } from './constants/index.js';
-import { errorHandlerMiddleware } from './middlewares/errorHandlerMiddleware.js';
-import { notFoundMiddleware } from './middlewares/notFoundMiddleware.js';
+import { errorHandler } from './middlewares/errorHandler.js';
+import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import router from './routers/contacts.js';
 
 export const setupServer = () => {
@@ -28,9 +28,10 @@ export const setupServer = () => {
 
   app.use(router);
 
-  app.use('*', errorHandlerMiddleware);
+  app.use('*', notFoundHandler);
 
-  app.use(notFoundMiddleware);
+  app.use(errorHandler);
+
   const PORT = env(ENV_VARS.PORT, 3005);
 
   app.listen(PORT, () => {
