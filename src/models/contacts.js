@@ -12,7 +12,10 @@ const contactsSchema = new Schema(
       default: 'personal',
     },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    versionKey: false,
+  },
 );
 
 const patchContactsSchema = new Schema(
@@ -28,7 +31,10 @@ const patchContactsSchema = new Schema(
       default: 'personal',
     },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+    versionKey: false,
+  },
 );
 
 const patchContact = model('patchContact', patchContactsSchema, 'contacts');
