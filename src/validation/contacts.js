@@ -15,7 +15,7 @@ export const createContactSchema = Joi.object({
     'string.max': `"Phone number" should have a maximum length of {#limit}`,
     'any.required': `"Phone number" is a required field`,
   }),
-  email: Joi.string().email().min(3).max(20).required().messages({
+  email: Joi.string().email().min(3).max(20).messages({
     'string.email': `"Email" must be a valid email address`,
     'string.min': `"Email" should have a minimum length of {#limit}`,
     'string.max': `"Email" should have a maximum length of {#limit}`,
