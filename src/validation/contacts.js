@@ -19,7 +19,6 @@ export const createContactSchema = Joi.object({
     'string.email': `"Email" must be a valid email address`,
     'string.min': `"Email" should have a minimum length of {#limit}`,
     'string.max': `"Email" should have a maximum length of {#limit}`,
-    'any.required': `"Email" is a required field`,
   }),
   isFavourite: Joi.boolean().messages({
     'boolean.base': `"Is Favourite" should be a boolean value`,
