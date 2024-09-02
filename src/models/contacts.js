@@ -11,6 +11,7 @@ const contactsSchema = new Schema(
       enum: ['work', 'home', 'personal'],
       default: 'personal',
     },
+    parentId: { type: Schema.Types.ObjectId, ref: 'users' },
   },
   {
     timestamps: true,
@@ -30,6 +31,7 @@ const patchContactsSchema = new Schema(
       required: true,
       default: 'personal',
     },
+    parentId: { type: Schema.Types.ObjectId, ref: 'users' },
   },
   {
     timestamps: true,
