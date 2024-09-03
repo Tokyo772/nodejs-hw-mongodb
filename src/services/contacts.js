@@ -12,7 +12,7 @@ export const getAllContacts = async ({
 }) => {
   const limit = perPage;
   const skip = (page - 1) * perPage;
-  const contactsQuery = patchContact.find({ parentId: user._id });
+  const contactsQuery = patchContact.find({ userId: user._id });
 
   if (typeof filter.isFavourite === 'boolean') {
     contactsQuery.where('isFavourite').equals(filter.isFavourite);
@@ -44,24 +44,24 @@ export const getAllContacts = async ({
 };
 
 export const getContactById = async (id, user) => {
-  return await Contacts.findOne({ _id: id, parentId: user._id });
+  return await Contacts.findOne({ _id: id, userId: user._id });
 };
 
 export const postContact = async (payload, user) => {
-  const contact = await patchContact.create({ ...payload, parentId: user._id });
+  const contact = await patchContact.create({ ...payload, userId: user._id });
   return contact;
 };
 
 export const updateContact = async (
   contactId,
   payload,
-  parentId,
+  userId,
   options = {},
 ) => {
   const rawResult = await Contacts.findOneAndUpdate(
     {
       _id: contactId,
-      parentId,
+      userId,
     },
     payload,
     {
@@ -82,7 +82,7 @@ export const updateContact = async (
 export const deleteContact = async (contactId, user) => {
   const contact = Contacts.findOneAndDelete({
     _id: contactId,
-    parentId: user._id,
+    userId: user._id,
   });
 
   return contact;
