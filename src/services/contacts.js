@@ -54,8 +54,8 @@ export const postContact = async (payload, user) => {
 
 export const updateContact = async (
   contactId,
-  payload,
   userId,
+  payload,
   options = {},
 ) => {
   const rawResult = await Contacts.findOneAndUpdate(
@@ -64,6 +64,7 @@ export const updateContact = async (
       userId,
     },
     payload,
+
     {
       new: true,
       includeResultMetadata: true,
