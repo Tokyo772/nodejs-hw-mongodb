@@ -1,0 +1,63 @@
+tags:
+  - Authentication
+summary: Log in a user
+operationId: loginUser
+description: 'Authenticate a user and return a token'
+requestBody:
+  required: true
+  content:
+    application/json:
+      schema:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          email:
+            type: string
+            example: 'meroky3232@gmail.com'
+            description: 'The email address of the user'
+          password:
+            type: string
+            example: '12345'
+            description: 'The password of the user'
+      example:
+        email: 'meroky3232@gmail.com'
+        password: '12345'
+responses:
+  '200':
+    description: User logged in successfully
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: 'Successfully logged in an user!'
+            data:
+              type: object
+              properties:
+                accessToken:
+                  type: string
+                  example: '/XY2EJGiSOA/eRmZKtfGi1qurghgphhE6GsAF4zD'
+  '400':
+    description: Invalid credentials
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 400
+            message:
+              type: string
+              example: 'Invalid credentials'
