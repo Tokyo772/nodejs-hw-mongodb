@@ -1,5 +1,5 @@
 import { SORT_ORDER } from '../constants/index.js';
-import { Contacts, patchContact } from '../models/contacts.js';
+import { Contacts } from '../models/contacts.js';
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 
 export const getAllContacts = async ({
@@ -12,7 +12,7 @@ export const getAllContacts = async ({
 }) => {
   const limit = perPage;
   const skip = (page - 1) * perPage;
-  const contactsQuery = patchContact.find({ userId: user._id });
+  const contactsQuery = Contacts.find({ userId: user._id });
 
   if (typeof filter.isFavourite === 'boolean') {
     contactsQuery.where('isFavourite').equals(filter.isFavourite);
@@ -22,8 +22,7 @@ export const getAllContacts = async ({
     contactsQuery.where('contactType').equals(filter.contactType);
   }
 
-  const contactsCount = await patchContact
-    .find()
+  const contactsCount = await Contacts.find()
     .merge(contactsQuery)
     .countDocuments();
   const contacts = await contactsQuery
@@ -48,7 +47,7 @@ export const getContactById = async (id, user) => {
 };
 
 export const postContact = async (payload, user) => {
-  const contact = await patchContact.create({ ...payload, userId: user._id });
+  const contact = await Contacts.create({ ...payload, userId: user._id });
   return contact;
 };
 
