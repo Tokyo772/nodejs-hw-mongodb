@@ -552,7 +552,7 @@
         }
       }
     },
-    "/login": {
+    "/auth/login": {
       "post": {
         "tags": [
           "Authentication"
@@ -648,7 +648,7 @@
         }
       }
     },
-    "/register": {
+    "/auth/register": {
       "post": {
         "tags": [
           "Authentication"
@@ -775,7 +775,7 @@
         }
       }
     },
-    "/logout": {
+    "/auth/logout": {
       "post": {
         "tags": [
           "Authentication"
@@ -815,7 +815,7 @@
         }
       }
     },
-    "/refresh": {
+    "/auth/refresh": {
       "post": {
         "tags": [
           "Authentication"

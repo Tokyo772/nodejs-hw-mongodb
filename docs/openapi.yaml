@@ -25,16 +25,16 @@ paths:
       $ref: ../swagger/paths/contacts/get.yaml
     post:
       $ref: ../swagger/paths/contacts/post.yaml
-  /login:
+  /auth/login:
     post:
       $ref: ../swagger/paths/auth/login/post.yaml
-  /register:
+  /auth/register:
     post:
       $ref: ../swagger/paths/auth/register/post.yaml
-  /logout:
+  /auth/logout:
     post:
       $ref: ../swagger/paths/auth/logout/post.yaml
-  /refresh:
+  /auth/refresh:
     post:
       $ref: ../swagger/paths/auth/refresh/post.yaml
 components:
