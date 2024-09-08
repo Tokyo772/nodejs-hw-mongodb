@@ -40,6 +40,7 @@ requestBody:
             type: string
             format: binary
             example: 'https://example.com/photo.jpg'
+            description: 'URL to the contact photo'
       example:
         name: 'John Doe'
         phoneNumber: '+1234567890'
