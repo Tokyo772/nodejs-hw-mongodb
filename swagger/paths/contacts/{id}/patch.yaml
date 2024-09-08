@@ -38,6 +38,7 @@ requestBody:
             example: 'work'
           photo:
             type: string
+            format: binary
             example: 'https://example.com/photo.jpg'
       example:
         name: 'John Doe'

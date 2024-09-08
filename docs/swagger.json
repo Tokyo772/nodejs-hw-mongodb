@@ -479,6 +479,7 @@
                   },
                   "photo": {
                     "type": "string",
+                    "format": "binary",
                     "example": "https://example.com/photo.jpg",
                     "description": "URL to the contact photo"
                   }
